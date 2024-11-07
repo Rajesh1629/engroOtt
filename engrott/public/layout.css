@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #fff;
+  margin:0 !important;
+}General Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #fff;
+  margin:0 !important;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #202020;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.left-header {
+  display: flex;
+  align-items: center;
+}
+
+.left-header ul {
+  color: aliceblue;
+  display: flex;
+  margin-left: 20px;
+}
+
+.left-header ul li {
+  font-size: 14px;
+  list-style-type: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0 15px;
+}
+
+.left-header li.nav-item {
+  border-left: 1px solid grey;
+}
+
+.navbar-nav .engroLogo {
+  margin-right: 20px;
+}
+a.nav-link.active {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-item a{
+  text-decoration: none;
+  color: white;
+}
+.right-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.right-header li {
+  list-style: none;
+}
+
+.right-header li img {
+  height: 30px;
+  border-radius: 15px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.nav-item {
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.nav-item.active {
+  background-color: red;
+  border-radius: 4px;
+}
+
+/* footer */
+.footer {
+  background-color: #272829;
+  color: #fff;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-content {
+  max-width: 1500px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.logo-address {
+  text-align: center;
+  margin-right: 80px;
+}
+
+.logo-address img {
+  max-width: 100%;
+  height: auto;
+}
+
+.social-icons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons a {
+  margin: 0 10px;
+}
+
+.footer-section h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  font-size: 14px;
+  color: #ddd;
+  margin: 5px 0;
+}
