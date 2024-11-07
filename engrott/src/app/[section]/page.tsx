@@ -21,9 +21,7 @@ const Section = async({params}:any)=>{
 export async function getAPIData(section:any) {
     try {
       const res = await fetch(`https://apifo-wyk-xms.engro.in/api/frontend-config/v2/content/${section}?lang=en&platform=android`);
-      const data = await res.json();
-      console.log("vbggu",data);
-      
+      const data = await res.json();      
       return data
     } catch (error) {
       console.error("Error fetching API data:", error);

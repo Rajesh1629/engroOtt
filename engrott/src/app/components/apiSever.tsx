@@ -7,7 +7,7 @@ export async function getHomeAPIData() {
     const data = await res.json();
     
     const playlistData = await Promise.allSettled(
-      data.data.playlist
+      data?.data?.playlist
         .map(async (item: any) => {
           const response = await fetch(`${domainUrl}playlist/playlist/${item.key}?siteId=822`);
           const playlist = await response.json();
@@ -43,5 +43,35 @@ export async function getcontentAPIData(section:any) {
   } catch (error) {
     console.error("Error fetching API data:", error);
     return { error: "Failed to fetch data" };
+  }
+}
+
+export async function getArticleListingData(){
+  try {
+    const res = await fetch(`${domainUrl}page/page/2?siteId=822`);
+    const data = await res.json();
+    
+    const articleListingData = await Promise.allSettled(
+      data?.data?.playlist
+        .map(async (item: any) => {
+          const response = await fetch(`${domainUrl}content/playlist/${item.key}?siteId=822`);
+          const playlist = await response.json();
+          return { [item.type]: playlist };
+        })
+    );
+    let articleData:any = []
+    articleListingData.filter(result => result.status === 'fulfilled')
+    .forEach((result) => {
+      const value = (result as PromiseFulfilledResult<any>).value;
+      const [key] = Object.keys(value);
+      if(key === 'slider'){
+       articleData.push(value?.[key]?.data);
+      }
+    })
+    return articleData;
+   
+  } catch (error) {
+    console.log(error, "error in article listing API");
+    
   }
 }

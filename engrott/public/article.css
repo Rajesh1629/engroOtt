@@ -1,0 +1,48 @@
+.article-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 20px 20px;
+}
+
+/* Container for each article */
+.article {
+  background-color: #494949;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Styling for the image */
+.article img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Styling for the text content */
+.article-content {
+  margin-top: 8px;
+}
+
+.article-title {
+  font-size: 1em;
+  margin: 0;
+  color: #ffffff;
+}
+.article-text {
+  font-size: 0.9em;
+  color: #ffffff;
+  margin: 5px 0 0;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* Responsive styling */
+@media (min-width: 1200px) {
+  .article-list {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

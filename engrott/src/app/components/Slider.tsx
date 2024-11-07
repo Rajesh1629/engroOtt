@@ -5,7 +5,7 @@ import { Navigation, Pagination, EffectFade, Autoplay } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import "swiper/css/pagination";
 
-export default function Slider({state}:any){
+export default function Slider({state}:any){  
     let{content = []} = state
     
     const [activeIndex, setActiveIndex] = useState(0);
