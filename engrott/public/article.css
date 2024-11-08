@@ -1,42 +1,56 @@
+/* Styling for the article list container */
 .article-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
-  padding: 20px 20px;
+  gap: 20px;
+  padding: 20px;
+  background-color: #2a2a2a;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
-
+.article-list a{
+  text-decoration: none;
+}
 /* Container for each article */
 .article {
-    text-align: center;
+  text-align: center;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Styling for the image */
+.article:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Styling for the article image */
 .article img {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 8px;
 }
 
 /* Styling for the text content */
 .article-content {
   margin-top: 8px;
+  color: #e0e0e0;
 }
 
 .article-title {
-  font-size: 1em;
+  font-size: 1.1em;
   margin: 0;
   color: #ffffff;
-}
-.article-text {
-  font-size: 0.9em;
-  color: #ffffff;
-  margin: 5px 0 0;
-  text-align: left;
-  font-size: 14px;
+  font-weight: 600;
 }
 
-/* Responsive styling */
+.article-text {
+  font-size: 0.9em;
+  color: #cccccc;
+  margin: 5px 0 0;
+  text-align: left;
+}
+
+/* Responsive styling for 5 articles per row on large screens */
 @media (min-width: 1200px) {
   .article-list {
     grid-template-columns: repeat(5, 1fr);
@@ -47,15 +61,22 @@
 .big-article-card {
   display: flex;
   width: 100%;
-  border-radius: 10px;
   padding: 0 24px;
   overflow: hidden;
   margin: 20px 0;
+  background-color: #3a3a3a;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.big-article-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* Styling for the image section */
 .image-section {
-  flex: 2; /* Increased width for the image */
+  flex: 2;
 }
 
 .image-section img {
@@ -66,19 +87,21 @@
 
 /* Styling for the content section */
 .content-section {
-  flex: 3; /* Slightly reduced width for the content */ 
+  flex: 3;
   padding: 20px;
+  color: #e0e0e0;
 }
 
 .article-title {
   font-size: 1.8em;
   margin: 0;
   color: #ffffff;
+  font-weight: 700;
 }
 
 .article-description {
   font-size: 1em;
-  color: #ffffff;
+  color: #cccccc;
   margin: 10px 0;
 }
 
@@ -90,13 +113,15 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .read-more:hover {
   background-color: #0056b3;
+  transform: scale(1.05);
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for mobile view */
 @media (max-width: 768px) {
   .big-article-card {
     flex-direction: column;
@@ -107,6 +132,88 @@
   }
   
   .content-section {
+    padding: 15px;
+  }
+}
+
+/* Main container for the article detail page */
+.article-detail-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+/* Centering and styling for the image container */
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 900px; /* Max width to make the image large and centered */
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Content container styling */
+.content-container {
+  padding: 20px;
+  background-color: #000000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Article title */
+.article-title {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Article author and date */
+.article-author {
+  font-size: 1em;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Article description */
+.article-description {
+  font-size: 1.2em;
+  color: #ffffff;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Main article content */
+.article-content {
+  font-size: 1em;
+  line-height: 1.8;
+  color: #ffffff;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+  .article-title {
+    font-size: 1.8em;
+  }
+
+  .article-description {
+    font-size: 1em;
+  }
+
+  .content-container {
     padding: 15px;
   }
 }
