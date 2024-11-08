@@ -9,10 +9,11 @@ const Detail = () => {
         preload: 'auto',
         sources: [
           {
-            src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
-            type: 'video/mp4',
+            src: 'https://engro-xms-dev.engro.in/engro-audio/6729ff373503d00001f892d5.mp3',
+            type: 'audio/mp3',
           },
         ],
+        poster: 'https://engro-xms-dev.engro.in/posterImage/672a00603503d00001f892d6.jpg'
       };
   return (
     <div>

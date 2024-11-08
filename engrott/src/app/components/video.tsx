@@ -41,13 +41,14 @@ const Video: React.FC<VideoPlayerProps> = ({ options }) => {
         {`
         .video-js {
           width : 100%;
+          height: 45rem;
         }
           .video-js-loading{
            width: 100%;
             position: relative;
             background-color: #000;
             overflow: hidden;
-           height:720px;
+           height:45rem;
            z-index: 10;
           }
         .video-js-palyer{
@@ -90,6 +91,11 @@ const Video: React.FC<VideoPlayerProps> = ({ options }) => {
         .videoloading{
         display: none;
         }
+        @media (max-width:767px){
+        .video-js-loading, .video-js{
+        height: 20rem;
+        }
+        }
         `}
       </style>
       <div data-vjs-player className= {isLoading?  'video-js-loading':'video-js-palyer'}>
@@ -101,7 +107,7 @@ const Video: React.FC<VideoPlayerProps> = ({ options }) => {
         </div>
           )}
           <div className= {isLoading?  'videoloading':''}>
-            <video ref={videoRef} className="video-js vjs-big-play-centered" />
+            <video ref={videoRef} poster= 'https://engro-xms-dev.engro.in/posterImage/672a00603503d00001f892d6.jpg' className="video-js vjs-big-play-centered" />
             </div>
           </div>
         ) : (
