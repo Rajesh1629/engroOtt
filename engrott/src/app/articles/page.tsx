@@ -1,10 +1,11 @@
 import React from 'react'
 import '../../../public/article.css'
-import { getArticleListingData } from '../components/apiSever'
+import { getCommonListingData } from '../components/apiSever'
 const ArticleListing = async () => {
-  const articleData = await getArticleListingData();   
+  const articleData = await getCommonListingData('2','content','playlist');    
+  
   const [ {content=[] }= {}] = articleData 
-  const [{images = [],name = '', description = ''}={}] = content
+  const [{images = [],name = ''}={}] = content
   
   return (
     <div>
