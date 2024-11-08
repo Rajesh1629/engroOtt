@@ -7,11 +7,7 @@
 
 /* Container for each article */
 .article {
-  background-color: #494949;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+    text-align: center;
 }
 
 /* Styling for the image */
@@ -44,5 +40,73 @@
 @media (min-width: 1200px) {
   .article-list {
     grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Container styling for the big article card */
+.big-article-card {
+  display: flex;
+  width: 100%;
+  border-radius: 10px;
+  padding: 0 24px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+/* Styling for the image section */
+.image-section {
+  flex: 2; /* Increased width for the image */
+}
+
+.image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Styling for the content section */
+.content-section {
+  flex: 3; /* Slightly reduced width for the content */ 
+  padding: 20px;
+}
+
+.article-title {
+  font-size: 1.8em;
+  margin: 0;
+  color: #ffffff;
+}
+
+.article-description {
+  font-size: 1em;
+  color: #ffffff;
+  margin: 10px 0;
+}
+
+.read-more {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.read-more:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .big-article-card {
+    flex-direction: column;
+  }
+  
+  .image-section {
+    width: 100%;
+  }
+  
+  .content-section {
+    padding: 15px;
   }
 }

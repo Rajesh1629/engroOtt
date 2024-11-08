@@ -6,6 +6,19 @@ const ArticleListing = async () => {
   
   return (
     <div>
+      <div className="big-article-card">
+  <div className="image-section">
+  <img src="https://media.gettyimages.com/id/184962061/photo/business-towers.jpg?s=612x612&w=gi&k=20&c=Iw2MruV_UEORrJi036Zb5TOP74HMSpsihyuTnG74XBk=" alt="Article Image"/>
+  </div>
+  <div className="content-section">
+    <h2 className="article-title">Article Title</h2>
+    <p className="article-description">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et semper nisl. Suspendisse potenti. Vivamus eget dolor ut mauris dapibus blandit.
+    </p>
+    <button className="read-more">Read More</button>
+  </div>
+</div>
+
 <div>
   <div className="article-list">
     {articleData.map((item: any, index: any) =>
