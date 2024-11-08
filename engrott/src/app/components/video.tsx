@@ -4,13 +4,23 @@ import React, { useRef, useEffect, useState } from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
 
+interface VideoPlayerOptions {
+  controls: boolean;
+  autoplay: boolean;
+  preload: string;
+  sources: Array<{
+    src: string;
+    type: string;
+  }>;
+} 
+
 interface VideoPlayerProps {
-  options: videojs.PlayerOptions;
+  options: VideoPlayerOptions;
 }
 
 const Video: React.FC<VideoPlayerProps> = ({ options }) => {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const playerRef = useRef<videojs.Player | null>(null);
+  const videoRef = useRef<any>(null);
+  const playerRef = useRef<any>(null);
   const [videoError, setVideoError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   
@@ -18,10 +28,7 @@ const Video: React.FC<VideoPlayerProps> = ({ options }) => {
     if (videoRef.current) {
       playerRef.current = videojs(videoRef.current, options);
     }
-    console.log("Sdgsdgsdgdg", playerRef.current);
-  
   }, [options]);
-
 
   useEffect(() => {
     const player = videojs(videoRef.current, {
@@ -32,7 +39,6 @@ const Video: React.FC<VideoPlayerProps> = ({ options }) => {
 
     // Listen for the video to be ready
     player.on ('loadeddata', () => setIsLoading(false));
-
     
   }, []);
   return (
