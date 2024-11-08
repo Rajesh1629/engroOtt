@@ -11,12 +11,16 @@ const Section = async({params}:any)=>{
     
     return(
         (section === 'movie' || section === 'series' || section ==='music' ?            
-            
-       <Posters data ={data?.[0]} image = "posterImage"/>
+            data?.map?.((item:any,index:any)=>{
+                return(
+                   <>
+                <Posters data ={item} key={index} image = "posterImage"/>
+                   </>
+                )
+            })
        :
         <Detail/>
         ) 
-
     )
 }
 
