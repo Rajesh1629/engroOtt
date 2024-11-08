@@ -10,8 +10,9 @@ const Section = async({params}:any)=>{
     const data = await getAPIData();
     
     return(
-        (section === 'movie' || section === 'series' || section ==='livetv' ?            
-       <Posters data ={data?.data} image = "posterImage"/>
+        (section === 'movie' || section === 'series' || section ==='music' ?            
+            
+       <Posters data ={data?.[0]} image = "posterImage"/>
        :
         <Detail/>
         ) 

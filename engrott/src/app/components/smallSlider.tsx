@@ -46,9 +46,11 @@ export default function SmallSlider({state}:any){
               const img_url = images?.find((item: any) => item?.imageCategory === "posterImage");
               return (
                 <div className="slide" key={index}>
-                  <a href="/detail">
-                  <img src={img_url.imageUrl[0]} alt="posterImage" />
-                  </a>
+                  <div className="lazy_image">
+                    <a href="/detail">
+                      <img src={img_url.imageUrl[0]} width="100%" height="100%" alt="posterImage" />
+                    </a>
+                  </div>
                   <div className="caption">
                     <h3>{slide?.name || ''}</h3>
                     <p>{slide?.info || ''}</p>

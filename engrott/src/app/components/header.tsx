@@ -71,7 +71,7 @@ const Header = () => {
         }}
        >
          {data.map((item, index) => (
-           <li key={index} style={{ padding: '8px', cursor: 'pointer' }}>
+           <li key={index}>
              {item}
            </li>
          ))}
@@ -92,7 +92,7 @@ const Header = () => {
            padding: '0',
            margin: '0',
            zIndex: 1000,
-           opacity: 0,
+           display: 'none',
            transform: 'translateY(-10px)',
            transition: 'opacity 0.3s ease, transform 0.3s ease',
          }}

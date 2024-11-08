@@ -4,13 +4,23 @@ import React, { useRef, useEffect, useState } from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
 
+interface VideoPlayerOptions {
+  controls: boolean;
+  autoplay: boolean;
+  preload: string;
+  sources: Array<{
+    src: string;
+    type: string;
+  }>;
+} 
+
 interface VideoPlayerProps {
-  options: videojs.PlayerOptions;
+  options: VideoPlayerOptions;
 }
 
 const Video: React.FC<VideoPlayerProps> = ({ options }) => {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const playerRef = useRef<videojs.Player | null>(null);
+  const videoRef = useRef<any>(null);
+  const playerRef = useRef<any>(null);
   const [videoError, setVideoError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   
@@ -18,10 +28,7 @@ const Video: React.FC<VideoPlayerProps> = ({ options }) => {
     if (videoRef.current) {
       playerRef.current = videojs(videoRef.current, options);
     }
-    console.log("Sdgsdgsdgdg", playerRef.current);
-  
   }, [options]);
-
 
   useEffect(() => {
     const player = videojs(videoRef.current, {
@@ -32,7 +39,6 @@ const Video: React.FC<VideoPlayerProps> = ({ options }) => {
 
     // Listen for the video to be ready
     player.on ('loadeddata', () => setIsLoading(false));
-
     
   }, []);
   return (
@@ -41,13 +47,14 @@ const Video: React.FC<VideoPlayerProps> = ({ options }) => {
         {`
         .video-js {
           width : 100%;
+          height: 45rem;
         }
           .video-js-loading{
            width: 100%;
             position: relative;
             background-color: #000;
             overflow: hidden;
-           height:720px;
+           height:45rem;
            z-index: 10;
           }
         .video-js-palyer{
@@ -90,6 +97,11 @@ const Video: React.FC<VideoPlayerProps> = ({ options }) => {
         .videoloading{
         display: none;
         }
+        @media (max-width:767px){
+        .video-js-loading, .video-js{
+        height: 20rem;
+        }
+        }
         `}
       </style>
       <div data-vjs-player className= {isLoading?  'video-js-loading':'video-js-palyer'}>
@@ -101,7 +113,7 @@ const Video: React.FC<VideoPlayerProps> = ({ options }) => {
         </div>
           )}
           <div className= {isLoading?  'videoloading':''}>
-            <video ref={videoRef} className="video-js vjs-big-play-centered" />
+            <video ref={videoRef} poster= 'https://engro-xms-dev.engro.in/posterImage/672a00603503d00001f892d6.jpg' className="video-js vjs-big-play-centered" />
             </div>
           </div>
         ) : (

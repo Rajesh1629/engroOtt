@@ -11,7 +11,9 @@ const Home = ({ state }: any) => {
           index == 0 ?
             <Slider state={item} />
            :
-             <SmallSlider state = {item}/>
+             <div className='container'>
+                <SmallSlider state = {item}/>
+              </div>
            )
         })
       }     

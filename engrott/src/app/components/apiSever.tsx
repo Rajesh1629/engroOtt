@@ -94,6 +94,35 @@ export async function getAPIData() {
     
   }
 }
+export async function getArticleListingData(){
+  try {
+    const res = await fetch(`${domainUrl}page/page/3?siteId=822`);
+    const data = await res.json();
+    
+    const articleListingData = await Promise.allSettled(
+      data?.data?.playlist
+        .map(async (item: any) => {
+          const response = await fetch(`${domainUrl}content/playlist/${item.key}?siteId=822`);
+          const playlist = await response.json();
+          return { [item.type]: playlist };
+        })
+    );
+    let articleData:any = []
+    articleListingData.filter(result => result.status === 'fulfilled')
+    .forEach((result) => {
+      const value = (result as PromiseFulfilledResult<any>).value;
+      const [key] = Object.keys(value);
+      if(key === 'slider'){
+       articleData.push(value?.[key]?.data);
+      }
+    })
+    return articleData;
+   
+  } catch (error) {
+    console.log(error, "error in article listing API");
+    
+  }
+}
 export async function getArticleDetailData(id: any){
   try {
     const res = await fetch(`${domainUrl}content/articles/${id}?siteId=822`);
