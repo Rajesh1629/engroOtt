@@ -21,12 +21,12 @@ const ArticleListing = async () => {
 
 <div>
   <div className="article-list">
-    {articleData?.slice(1,).map((item: any, index: any) =>
-      item.content.map((item1: any, index1: any) => (
+    {articleData?.slice(0,)?.map((item: any, index: any) =>
+      item.content.slice(1,).map((item1: any, index1: any) => (
         <a href={`/articledetails/${item1.key}`}>
         <div className="article" key={`${index}-${index1}`}>
           {item1.images?.[0] && (
-            <img src={item1.images[1].imageUrl} alt="Article Image" />
+            <img src={item1.images[0].imageUrl} alt="Article Image" />
           )}
           <div className="article-content">
             <p className="article-text">{item1?.name}</p>

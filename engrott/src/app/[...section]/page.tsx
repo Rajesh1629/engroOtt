@@ -7,7 +7,6 @@ const ArticleDetail = async({params}:any) => {
   const articleData = await getArticleDetailData(articleId)  
   let {data = {}} = articleData
   let {excerpt = '',articleBody = '',createdAt = '',images = []} = data
-  console.log(images,'hghfdsghfgds');
   let [{imageUrl = ''}={}] = images
   function removeHtmlTags(text:any) {
     return text.replace(/<[^>]*>/g, '');
